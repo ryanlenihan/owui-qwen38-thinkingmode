@@ -24,6 +24,10 @@ plus three quality-of-life behaviors:
 
 ![THinking Toggle](images/thinking-toggle.png)
 
+![THinking Effort](images/thinking-toggle-effort.png)
+
+![THinking Toggle Enabled](images/thinking-toggle-enabled.png)
+
 ## Requirements
 
 - Open WebUI **≥ 0.9.0** (toggle filters)
