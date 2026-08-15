@@ -4,7 +4,7 @@ A Claude-Code-style **Think button** for [Open WebUI](https://github.com/open-we
 
 Built for **hybrid thinking models served by vLLM** — Qwen 3.8 in particular — where the server default is thinking *off* and you want thinking on demand.
 
-## Why this exists
+## Why?
 
 Open WebUI's own thinking toggle sends `enable_thinking` as a **top-level request field, which vLLM silently ignores**. vLLM expects it inside `chat_template_kwargs`. So the built-in toggle does nothing against a vLLM backend. This filter injects the flag where it actually works, and strips the no-op top-level field so there's one source of truth.
 
@@ -21,6 +21,8 @@ plus three quality-of-life behaviors:
 - **Official thinking sampler** — Qwen's recommended thinking-mode sampling (`temperature 1.0 / top_p 0.95 / presence_penalty 0`) is applied automatically while thinking, unless the request already sets its own values. Without this you'd be thinking with instruct-mode sampling, which is off-spec.
 - **Background tasks never think** — title, tag, and follow-up generation calls are forced to fast mode, so flipping Think on doesn't give you 30-second chat titles.
 - **Effort control** — `low` / `medium` / `xhigh` via a per-user valve (Chat Controls → Valves). These map to Qwen 3.8's native `reasoning_effort`.
+
+![THinking Toggle](images/thinking-toggle.png)
 
 ## Requirements
 
